@@ -155,9 +155,11 @@
         }
       });
       next =
-        imagesCollection[index] ||
+        imagesCollection[index - 1] ||
         imagesCollection[imagesCollection.length - 1];
       $(".lightboxImage").attr("src", $(next).attr("src"));
+      console.log("index",index);
+      console.log("imagesCollection",imagesCollection);
     },
     nextImage() {
       let activeImage = null;
@@ -193,8 +195,10 @@
           index = i;
         }
       });
-      next = imagesCollection[index] || imagesCollection[0];
+      next = imagesCollection[index + 1] || imagesCollection[0];
       $(".lightboxImage").attr("src", $(next).attr("src"));
+      console.log("index",index);
+      console.log("imagesCollection",imagesCollection);
     },
     createLightBox(gallery, lightboxId, navigation) {
       gallery.append(`<div class="modal fade" id="${
